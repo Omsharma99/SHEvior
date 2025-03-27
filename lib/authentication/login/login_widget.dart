@@ -1,8 +1,10 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'login_model.dart';
 export 'login_model.dart';
@@ -27,10 +29,10 @@ class _LoginWidgetState extends State<LoginWidget> {
     super.initState();
     _model = createModel(context, () => LoginModel());
 
-    _model.textController1 ??= TextEditingController();
+    _model.emailTextController ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
+    _model.passwordTextController ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
   }
 
@@ -163,7 +165,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                               Container(
                                 width: double.infinity,
                                 child: TextFormField(
-                                  controller: _model.textController1,
+                                  controller: _model.emailTextController,
                                   focusNode: _model.textFieldFocusNode1,
                                   autofillHints: [AutofillHints.email],
                                   textCapitalization: TextCapitalization.none,
@@ -223,14 +225,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       ),
                                   keyboardType: TextInputType.emailAddress,
                                   cursorColor: Color(0xFFFF7E9D),
-                                  validator: _model.textController1Validator
+                                  validator: _model.emailTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
                               Container(
                                 width: double.infinity,
                                 child: TextFormField(
-                                  controller: _model.textController2,
+                                  controller: _model.passwordTextController,
                                   focusNode: _model.textFieldFocusNode2,
                                   autofillHints: [AutofillHints.password],
                                   textInputAction: TextInputAction.done,
@@ -302,7 +304,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         letterSpacing: 0.0,
                                       ),
                                   cursorColor: Color(0xFFFF7E9D),
-                                  validator: _model.textController2Validator
+                                  validator: _model
+                                      .passwordTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -390,8 +393,20 @@ class _LoginWidgetState extends State<LoginWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            GoRouter.of(context).prepareAuthEvent();
+
+                            final user = await authManager.signInWithEmail(
+                              context,
+                              _model.emailTextController.text,
+                              _model.passwordTextController.text,
+                            );
+                            if (user == null) {
+                              return;
+                            }
+
+                            context.goNamedAuth(
+                                DashboardWidget.routeName, context.mounted);
                           },
                           text: 'Continue',
                           options: FFButtonOptions(
@@ -436,16 +451,25 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     letterSpacing: 0.0,
                                   ),
                             ),
-                            Text(
-                              'Sign up',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: Color(0xFFFF7E9D),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed(SignupWidget.routeName);
+                              },
+                              child: Text(
+                                'Sign up',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color: Color(0xFFFF7E9D),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
                             ),
                           ],
                         ),

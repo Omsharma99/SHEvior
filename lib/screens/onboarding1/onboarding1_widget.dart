@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'onboarding1_model.dart';
 export 'onboarding1_model.dart';
@@ -53,6 +54,12 @@ class _Onboarding1WidgetState extends State<Onboarding1Widget> {
               begin: AlignmentDirectional(1.0, 1.0),
               end: AlignmentDirectional(-1.0, -1.0),
             ),
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(0.0),
+              bottomRight: Radius.circular(0.0),
+              topLeft: Radius.circular(0.0),
+              topRight: Radius.circular(0.0),
+            ),
           ),
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(24.0, 60.0, 24.0, 32.0),
@@ -68,7 +75,7 @@ class _Onboarding1WidgetState extends State<Onboarding1Widget> {
                     Text(
                       'SHEVIOR',
                       style: FlutterFlowTheme.of(context).displaySmall.override(
-                            fontFamily: 'Inter Tight',
+                            fontFamily: 'Roboto',
                             color: Color(0xFF0B0A0A),
                             fontSize: 42.0,
                             letterSpacing: 2.0,
@@ -170,8 +177,8 @@ class _Onboarding1WidgetState extends State<Onboarding1Widget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              context.pushNamed(SignupWidget.routeName);
                             },
                             text: 'Skip',
                             options: FFButtonOptions(
@@ -199,8 +206,8 @@ class _Onboarding1WidgetState extends State<Onboarding1Widget> {
                             ),
                           ),
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              context.pushNamed(Onboarding2Widget.routeName);
                             },
                             icon: Icon(
                               Icons.arrow_forward,

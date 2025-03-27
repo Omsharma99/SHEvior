@@ -1,6 +1,8 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'signup_model.dart';
 export 'signup_model.dart';
@@ -25,13 +27,13 @@ class _SignupWidgetState extends State<SignupWidget> {
     super.initState();
     _model = createModel(context, () => SignupModel());
 
-    _model.textController1 ??= TextEditingController();
+    _model.emailTextController ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
+    _model.passwordTextController ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
-    _model.textController3 ??= TextEditingController();
+    _model.confirmPasswordTextController ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
   }
 
@@ -65,6 +67,12 @@ class _SignupWidgetState extends State<SignupWidget> {
                     stops: [0.0, 1.0],
                     begin: AlignmentDirectional(1.0, 1.0),
                     end: AlignmentDirectional(-1.0, -1.0),
+                  ),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(0.0),
+                    bottomRight: Radius.circular(0.0),
+                    topLeft: Radius.circular(0.0),
+                    topRight: Radius.circular(0.0),
                   ),
                 ),
               ),
@@ -116,7 +124,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                                 child: Container(
                                   width: double.infinity,
                                   child: TextFormField(
-                                    controller: _model.textController1,
+                                    controller: _model.emailTextController,
                                     focusNode: _model.textFieldFocusNode1,
                                     autofocus: false,
                                     autofillHints: [AutofillHints.email],
@@ -135,7 +143,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: Color(0x00000000),
+                                          color: Color(0xFFFF7E9D),
                                           width: 0.0,
                                         ),
                                         borderRadius:
@@ -143,8 +151,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                          color: Color(0xFFFF7E9D),
                                           width: 0.0,
                                         ),
                                         borderRadius:
@@ -180,7 +187,8 @@ class _SignupWidgetState extends State<SignupWidget> {
                                     keyboardType: TextInputType.emailAddress,
                                     cursorColor:
                                         FlutterFlowTheme.of(context).primary,
-                                    validator: _model.textController1Validator
+                                    validator: _model
+                                        .emailTextControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -194,7 +202,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                           child: Container(
                             width: double.infinity,
                             child: TextFormField(
-                              controller: _model.textController2,
+                              controller: _model.passwordTextController,
                               focusNode: _model.textFieldFocusNode2,
                               autofocus: false,
                               autofillHints: [AutofillHints.password],
@@ -213,14 +221,14 @@ class _SignupWidgetState extends State<SignupWidget> {
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Color(0x00000000),
+                                    color: Color(0xFFFF7E9D),
                                     width: 0.0,
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).primary,
+                                    color: Color(0xFFFF7E9D),
                                     width: 0.0,
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
@@ -263,7 +271,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                                   ),
                               keyboardType: TextInputType.visiblePassword,
                               cursorColor: FlutterFlowTheme.of(context).primary,
-                              validator: _model.textController2Validator
+                              validator: _model.passwordTextControllerValidator
                                   .asValidator(context),
                             ),
                           ),
@@ -274,7 +282,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                           child: Container(
                             width: double.infinity,
                             child: TextFormField(
-                              controller: _model.textController3,
+                              controller: _model.confirmPasswordTextController,
                               focusNode: _model.textFieldFocusNode3,
                               autofocus: false,
                               autofillHints: [AutofillHints.password],
@@ -293,14 +301,14 @@ class _SignupWidgetState extends State<SignupWidget> {
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Color(0x00000000),
+                                    color: Color(0xFFFF7E9D),
                                     width: 0.0,
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).primary,
+                                    color: Color(0xFFFF7E9D),
                                     width: 0.0,
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
@@ -343,7 +351,8 @@ class _SignupWidgetState extends State<SignupWidget> {
                                   ),
                               keyboardType: TextInputType.visiblePassword,
                               cursorColor: FlutterFlowTheme.of(context).primary,
-                              validator: _model.textController3Validator
+                              validator: _model
+                                  .confirmPasswordTextControllerValidator
                                   .asValidator(context),
                             ),
                           ),
@@ -352,8 +361,32 @@ class _SignupWidgetState extends State<SignupWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 24.0),
                           child: FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              GoRouter.of(context).prepareAuthEvent();
+                              if (_model.passwordTextController.text !=
+                                  _model.confirmPasswordTextController.text) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Passwords don\'t match!',
+                                    ),
+                                  ),
+                                );
+                                return;
+                              }
+
+                              final user =
+                                  await authManager.createAccountWithEmail(
+                                context,
+                                _model.emailTextController.text,
+                                _model.passwordTextController.text,
+                              );
+                              if (user == null) {
+                                return;
+                              }
+
+                              context.goNamedAuth(
+                                  DashboardWidget.routeName, context.mounted);
                             },
                             text: 'Create Account',
                             options: FFButtonOptions(
@@ -456,7 +489,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                                       ),
                                   elevation: 0.0,
                                   borderSide: BorderSide(
-                                    color: Color(0xFFEEEEEE),
+                                    color: Color(0xFFFF7E9D),
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
@@ -483,16 +516,25 @@ class _SignupWidgetState extends State<SignupWidget> {
                                       letterSpacing: 0.0,
                                     ),
                               ),
-                              Text(
-                                'Sign in',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: Color(0xFFFF5B8F),
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed(LoginWidget.routeName);
+                                },
+                                child: Text(
+                                  'Sign in',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: Color(0xFFFF5B8F),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
                               ),
                             ],
                           ),

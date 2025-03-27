@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1089028066861",
+    "project_id": "shevior",
+    "storage_bucket": "shevior.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089028066861:android:553343eed91f31d018b2a4",
+        "android_client_info": {
+          "package_name": "com.mycompany.shevior"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8M53K8GFht5R33ZSwWivIWN5CKLglYLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

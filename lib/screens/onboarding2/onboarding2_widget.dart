@@ -1,6 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'onboarding2_model.dart';
 export 'onboarding2_model.dart';
 
@@ -23,6 +25,11 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Onboarding2Model());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      context.pushNamed(SignupWidget.routeName);
+    });
   }
 
   @override
@@ -245,15 +252,25 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          'Skip',
-                          style:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Inter Tight',
-                                    color: Color(0xFFFF5B8F),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed(SignupWidget.routeName);
+                          },
+                          child: Text(
+                            'Skip',
+                            style: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Inter Tight',
+                                  color: Color(0xFFFF5B8F),
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
@@ -293,29 +310,38 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                             ),
                           ],
                         ),
-                        Container(
-                          width: 50.0,
-                          height: 50.0,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFFF5B8F),
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 10.0,
-                                color: Color(0x33000000),
-                                offset: Offset(
-                                  0.0,
-                                  4.0,
-                                ),
-                              )
-                            ],
-                            shape: BoxShape.circle,
-                          ),
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Icon(
-                              Icons.arrow_forward,
-                              color: Colors.white,
-                              size: 24.0,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed(Onboarding3Widget.routeName);
+                          },
+                          child: Container(
+                            width: 50.0,
+                            height: 50.0,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFFF5B8F),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 10.0,
+                                  color: Color(0x33000000),
+                                  offset: Offset(
+                                    0.0,
+                                    4.0,
+                                  ),
+                                )
+                              ],
+                              shape: BoxShape.circle,
+                            ),
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Icon(
+                                Icons.arrow_forward,
+                                color: Colors.white,
+                                size: 24.0,
+                              ),
                             ),
                           ),
                         ),

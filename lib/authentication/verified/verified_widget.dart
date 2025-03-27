@@ -1,7 +1,9 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'verified_model.dart';
 export 'verified_model.dart';
 
@@ -24,6 +26,11 @@ class _VerifiedWidgetState extends State<VerifiedWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => VerifiedModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      context.pushNamed(SignupWidget.routeName);
+    });
   }
 
   @override
@@ -63,7 +70,6 @@ class _VerifiedWidgetState extends State<VerifiedWidget> {
                           width: 120.0,
                           height: 120.0,
                           decoration: BoxDecoration(
-                            color: Color(0xFFFF5B8F),
                             boxShadow: [
                               BoxShadow(
                                 blurRadius: 10.0,
@@ -74,6 +80,12 @@ class _VerifiedWidgetState extends State<VerifiedWidget> {
                                 ),
                               )
                             ],
+                            gradient: LinearGradient(
+                              colors: [Color(0xFFFF5B8F), Color(0xFFE19BAF)],
+                              stops: [0.0, 1.0],
+                              begin: AlignmentDirectional(0.0, -1.0),
+                              end: AlignmentDirectional(0, 1.0),
+                            ),
                             shape: BoxShape.circle,
                           ),
                           child: Align(
@@ -110,8 +122,8 @@ class _VerifiedWidgetState extends State<VerifiedWidget> {
                               ),
                         ),
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            context.pushNamed(DashboardWidget.routeName);
                           },
                           text: 'Continue to Dashboard',
                           options: FFButtonOptions(

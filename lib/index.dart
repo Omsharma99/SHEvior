@@ -8,3 +8,9 @@ export '/authentication/signup/signup_widget.dart' show SignupWidget;
 export '/authentication/details/details_widget.dart' show DetailsWidget;
 export '/authentication/verified/verified_widget.dart' show VerifiedWidget;
 export '/dashboard/dashboard/dashboard_widget.dart' show DashboardWidget;
+export '/s_o_s_and_add_friend/sos/sos_widget.dart' show SosWidget;
+export '/s_o_s_and_add_friend/addfriend/addfriend_widget.dart'
+    show AddfriendWidget;
+export '/community/mycommunity/mycommunity_widget.dart' show MycommunityWidget;
+export '/profile/profile/profile_widget.dart' show ProfileWidget;
+export '/location/location/location_widget.dart' show LocationWidget;
