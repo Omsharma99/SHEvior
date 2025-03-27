@@ -92,36 +92,13 @@ class _Onboarding3WidgetState extends State<Onboarding3Widget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        width: 300.0,
-                        height: 300.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: Image.network(
-                              '500x500?raised fists diversity',
-                            ).image,
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 10.0,
-                              color: Color(0x33000000),
-                              offset: Offset(
-                                0.0,
-                                4.0,
-                              ),
-                            )
-                          ],
-                        ),
-                        child: Align(
-                          alignment: AlignmentDirectional(0.0, -0.8),
-                          child: Icon(
-                            Icons.female,
-                            color: Color(0xFFFF5B8F),
-                            size: 64.0,
-                          ),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(100.0),
+                        child: Image.asset(
+                          'assets/images/images.png',
+                          width: 394.6,
+                          height: 303.2,
+                          fit: BoxFit.cover,
                         ),
                       ),
                       Text(

@@ -261,6 +261,15 @@ class _LocationWidgetState extends State<LocationWidget> {
                 decoration: BoxDecoration(
                   color: Color(0x4FF8BBD0),
                 ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset(
+                    'assets/images/Screenshot_2025-03-27_184240.png',
+                    width: 200.0,
+                    height: 200.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
             Container(

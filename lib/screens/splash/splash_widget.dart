@@ -56,6 +56,7 @@ class _SplashWidgetState extends State<SplashWidget> {
                     'assets/images/logo.png',
                     width: 400.0,
                     fit: BoxFit.contain,
+                    alignment: Alignment(0.0, 0.0),
                   ),
                 ),
               ),

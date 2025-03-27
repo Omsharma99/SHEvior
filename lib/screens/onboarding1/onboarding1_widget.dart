@@ -1,7 +1,5 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/index.dart';
 import 'package:flutter/material.dart';
 import 'onboarding1_model.dart';
 export 'onboarding1_model.dart';
@@ -98,31 +96,13 @@ class _Onboarding1WidgetState extends State<Onboarding1Widget> {
                     ),
                   ],
                 ),
-                Container(
-                  width: 280.0,
-                  height: 280.0,
-                  decoration: BoxDecoration(
-                    color: Color(0x4D9C27B0),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 20.0,
-                        color: Color(0x33000000),
-                        offset: Offset(
-                          0.0,
-                          5.0,
-                        ),
-                      )
-                    ],
-                    shape: BoxShape.circle,
-                  ),
-                  child: Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
-                    child: Image.network(
-                      '500x500?raised fists smartwatch',
-                      width: 220.0,
-                      height: 220.0,
-                      fit: BoxFit.contain,
-                    ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset(
+                    'assets/images/female.png',
+                    width: 296.5,
+                    height: 308.5,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Padding(
@@ -176,59 +156,45 @@ class _Onboarding1WidgetState extends State<Onboarding1Widget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FFButtonWidget(
-                            onPressed: () async {
-                              context.pushNamed(SignupWidget.routeName);
-                            },
-                            text: 'Skip',
-                            options: FFButtonOptions(
-                              width: 100.0,
-                              height: 50.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: Color(0x33FFFFFF),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Inter Tight',
-                                    color: Color(0xFF0F0D0D),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                              elevation: 0.0,
-                              borderSide: BorderSide(
-                                color: Colors.white,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(30.0),
-                            ),
+                          Text(
+                            'Skip',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: Color(0xFFFF5B8F),
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
-                          FFButtonWidget(
-                            onPressed: () async {
-                              context.pushNamed(Onboarding2Widget.routeName);
-                            },
-                            icon: Icon(
-                              Icons.arrow_forward,
-                              color: Colors.white,
-                              size: 24.0,
-                            ),
-                            options: FFButtonOptions(
-                              width: 50.0,
-                              height: 50.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: Color(0xFFFF5B8F),
-                              textStyle: TextStyle(),
-                              elevation: 0.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 0.0,
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Container(
+                                width: 10.0,
+                                height: 10.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  shape: BoxShape.circle,
+                                ),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                               ),
-                              borderRadius: BorderRadius.circular(30.0),
+                            ],
+                          ),
+                          Container(
+                            width: 50.0,
+                            height: 50.0,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFFF5B8F),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.arrow_forward_rounded,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: 24.0,
                             ),
                           ),
                         ],

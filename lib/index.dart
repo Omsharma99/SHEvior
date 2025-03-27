@@ -14,3 +14,13 @@ export '/s_o_s_and_add_friend/addfriend/addfriend_widget.dart'
 export '/community/mycommunity/mycommunity_widget.dart' show MycommunityWidget;
 export '/profile/profile/profile_widget.dart' show ProfileWidget;
 export '/location/location/location_widget.dart' show LocationWidget;
+export '/emergency_helpline/emergency_helpline/emergency_helpline_widget.dart'
+    show EmergencyHelplineWidget;
+export '/dashboard/setting/setting_widget.dart' show SettingWidget;
+export '/dashboard/voice/voice_widget.dart' show VoiceWidget;
+export '/dashboard/notifications/notifications_widget.dart'
+    show NotificationsWidget;
+export '/dashboard/policenearby/policenearby_widget.dart'
+    show PolicenearbyWidget;
+export '/dashboard/hospitalnearby/hospitalnearby_widget.dart'
+    show HospitalnearbyWidget;

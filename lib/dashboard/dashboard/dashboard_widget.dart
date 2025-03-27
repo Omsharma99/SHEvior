@@ -81,8 +81,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: Image.network(
-                                  '500x500?woman',
+                                image: Image.asset(
+                                  'assets/images/8633876.jpg',
                                 ).image,
                               ),
                               boxShadow: [
@@ -820,11 +820,20 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(
-                                Icons.person_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed(ProfileWidget.routeName);
+                                },
+                                child: Icon(
+                                  Icons.person_rounded,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 24.0,
+                                ),
                               ),
                               Text(
                                 'Profile',

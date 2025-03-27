@@ -153,6 +153,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: LocationWidget.routeName,
           path: LocationWidget.routePath,
           builder: (context, params) => LocationWidget(),
+        ),
+        FFRoute(
+          name: EmergencyHelplineWidget.routeName,
+          path: EmergencyHelplineWidget.routePath,
+          builder: (context, params) => EmergencyHelplineWidget(),
+        ),
+        FFRoute(
+          name: SettingWidget.routeName,
+          path: SettingWidget.routePath,
+          builder: (context, params) => SettingWidget(),
+        ),
+        FFRoute(
+          name: VoiceWidget.routeName,
+          path: VoiceWidget.routePath,
+          builder: (context, params) => VoiceWidget(),
+        ),
+        FFRoute(
+          name: NotificationsWidget.routeName,
+          path: NotificationsWidget.routePath,
+          builder: (context, params) => NotificationsWidget(),
+        ),
+        FFRoute(
+          name: PolicenearbyWidget.routeName,
+          path: PolicenearbyWidget.routePath,
+          builder: (context, params) => PolicenearbyWidget(),
+        ),
+        FFRoute(
+          name: HospitalnearbyWidget.routeName,
+          path: HospitalnearbyWidget.routePath,
+          builder: (context, params) => HospitalnearbyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

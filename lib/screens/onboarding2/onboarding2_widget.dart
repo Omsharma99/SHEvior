@@ -106,14 +106,8 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                         child: Stack(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           children: [
-                            Image.network(
-                              '500x500?woman',
-                              width: double.infinity,
-                              height: double.infinity,
-                              fit: BoxFit.contain,
-                            ),
                             Align(
-                              alignment: AlignmentDirectional(0.91, -0.4),
+                              alignment: AlignmentDirectional(0.9, -0.92),
                               child: Container(
                                 width: 70.0,
                                 height: 70.0,
@@ -142,7 +136,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(-0.69, -0.52),
+                              alignment: AlignmentDirectional(-0.88, -0.91),
                               child: Container(
                                 width: 70.0,
                                 height: 70.0,
@@ -171,7 +165,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(-0.75, -0.05),
+                              alignment: AlignmentDirectional(-1.09, 0.73),
                               child: Container(
                                 width: 70.0,
                                 height: 70.0,
@@ -200,7 +194,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.91, -0.01),
+                              alignment: AlignmentDirectional(1.11, 0.64),
                               child: Container(
                                 width: 70.0,
                                 height: 70.0,
@@ -238,6 +232,18 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                       fontFamily: 'Inter',
                                       letterSpacing: 0.0,
                                     ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -0.15),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/erasebg-transformed.png',
+                                  width: 360.5,
+                                  height: 340.46,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ],
@@ -283,7 +289,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                 width: 8.0,
                                 height: 8.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).info,
+                                  color: Color(0x80FFFFFF),
                                   shape: BoxShape.circle,
                                 ),
                               ),
@@ -295,7 +301,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                 width: 8.0,
                                 height: 8.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0x80FFFFFF),
+                                  color: Colors.white,
                                   shape: BoxShape.circle,
                                 ),
                               ),

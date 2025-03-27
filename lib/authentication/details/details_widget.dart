@@ -410,7 +410,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 8.0),
                           child: Text(
-                            'Email',
+                            'Occupation',
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
@@ -428,7 +428,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                             focusNode: _model.textFieldFocusNode6,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'Enter your email address',
+                              hintText: 'Enter your work area',
                               hintStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
